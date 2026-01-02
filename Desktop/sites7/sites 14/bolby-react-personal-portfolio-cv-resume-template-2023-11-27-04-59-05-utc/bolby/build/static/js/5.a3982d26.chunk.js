@@ -1,0 +1,2 @@
+(this["webpackJsonpabdoolos.github.io"]=this["webpackJsonpabdoolos.github.io"]||[]).push([[5],{97:function(s,t,o){"use strict";o.r(t),t.default=o.p+"static/media/things-to-know-about-startup-business.3df71b0b.md"}}]);
+//# sourceMappingURL=5.a3982d26.chunk.js.map
