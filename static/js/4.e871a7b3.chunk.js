@@ -1,0 +1,2 @@
+(this["webpackJsonpabdoolos.github.io"]=this["webpackJsonpabdoolos.github.io"]||[]).push([[4],{96:function(o,t,i){"use strict";i.r(t),t.default=i.p+"static/media/common-misconceptions-about-payment.e5b2c5dc.md"}}]);
+//# sourceMappingURL=4.e871a7b3.chunk.js.map
