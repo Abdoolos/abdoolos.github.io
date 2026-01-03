@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.247feb05.chunk.css",
-    "main.js": "/static/js/main.ae763df3.chunk.js",
-    "main.js.map": "/static/js/main.ae763df3.chunk.js.map",
+    "main.css": "/static/css/main.5578fd0a.chunk.css",
+    "main.js": "/static/js/main.13a7a260.chunk.js",
+    "main.js.map": "/static/js/main.13a7a260.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.9676317a.js",
     "runtime-main.js.map": "/static/js/runtime-main.9676317a.js.map",
     "static/css/2.fee89144.chunk.css": "/static/css/2.fee89144.chunk.css",
@@ -16,7 +16,7 @@
     "static/js/5.a3982d26.chunk.js.map": "/static/js/5.a3982d26.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.fee89144.chunk.css.map": "/static/css/2.fee89144.chunk.css.map",
-    "static/css/main.247feb05.chunk.css.map": "/static/css/main.247feb05.chunk.css.map",
+    "static/css/main.5578fd0a.chunk.css.map": "/static/css/main.5578fd0a.chunk.css.map",
     "static/js/2.bb1df861.chunk.js.LICENSE.txt": "/static/js/2.bb1df861.chunk.js.LICENSE.txt",
     "static/media/best-app-development-tool.md": "/static/media/best-app-development-tool.ad3bbdcb.md",
     "static/media/common-misconceptions-about-payment.md": "/static/media/common-misconceptions-about-payment.e5b2c5dc.md",
@@ -28,7 +28,7 @@
     "static/js/runtime-main.9676317a.js",
     "static/css/2.fee89144.chunk.css",
     "static/js/2.bb1df861.chunk.js",
-    "static/css/main.247feb05.chunk.css",
-    "static/js/main.ae763df3.chunk.js"
+    "static/css/main.5578fd0a.chunk.css",
+    "static/js/main.13a7a260.chunk.js"
   ]
 }
