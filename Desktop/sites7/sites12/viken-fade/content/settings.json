@@ -1,0 +1,104 @@
+{
+  "siteTitle": "Viken Fade",
+  "phone": "+47 455 43 838",
+  "email": "ah2xx@hotmail.com",
+  "heroTitle": "Velkommen til Viken Fade",
+  "heroSubtitle": "Klassiske og moderne fades i hjertet av Viken",
+  "about": "Profesjonell herrefrisør. Drop-in",
+  "announcement": {
+    "enabled": true,
+    "type": "info",
+    "title": "🪧 ÅPENT",
+    "message": "Velkommen!",
+    "startDate": "",
+    "endDate": "",
+    "showUntil": ""
+  },
+  "workingHours": {
+    "regular": {
+      "monday": "10:00-19:00",
+      "tuesday": "10:00-19:00",
+      "wednesday": "10:00-19:00",
+      "thursday": "10:00-19:00",
+      "friday": "10:00-19:00",
+      "saturday": "10:00-19:00",
+      "sunday": "Stengt"
+    },
+    "holidays": [
+      {
+        "name": "Nyttårsdag",
+        "date": "2024-01-01",
+        "hours": "Stengt",
+        "description": "God nyttår!"
+      },
+      {
+        "name": "Julaften",
+        "date": "2024-12-24",
+        "hours": "Stengt",
+        "description": "God jul!"
+      },
+      {
+        "name": "1. juledag",
+        "date": "2024-12-25",
+        "hours": "Stengt",
+        "description": "God jul!"
+      },
+      {
+        "name": "2. juledag",
+        "date": "2024-12-26",
+        "hours": "Stengt",
+        "description": "God jul!"
+      }
+    ],
+    "specialDays": []
+  },
+  "gallery": {
+    "enabled": true,
+    "title": "🖼️ Galleri",
+    "description": "Se våre nyeste arbeider",
+    "imagesToShow": [
+      {
+        "filename": "a (1).png",
+        "alt": "Klassisk fade",
+        "description": "Perfekt fade teknikk"
+      },
+      {
+        "filename": "a (2).PNG",
+        "alt": "Modern stil",
+        "description": "Contemporary barbering"
+      },
+      {
+        "filename": "a (3).png",
+        "alt": "Skjegg styling",
+        "description": "Profesjonell skjegg trim"
+      },
+      {
+        "filename": "a (4).png",
+        "alt": "Hårklipp",
+        "description": "Clean cut finish"
+      },
+      {
+        "filename": "a (5).png",
+        "alt": "Fade stil",
+        "description": "Gradient fade perfection"
+      },
+      {
+        "filename": "a (6).png",
+        "alt": "Barbering",
+        "description": "Traditional barbering"
+      },
+      {
+        "filename": "a (7).png",
+        "alt": "Styling",
+        "description": "Final styling touch"
+      }
+    ]
+  },
+  "prices": {
+    "hair": 300,
+    "beard": 250,
+    "hairBeard": 400,
+    "threading": 100,
+    "wax": 100
+  }
+}
