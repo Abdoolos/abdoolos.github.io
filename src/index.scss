@@ -49,6 +49,25 @@ p, a, h1, h2, h3, h4, h5, label, button {
   }
 }
 
+.lang-switch-btn {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  color: white !important;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: white;
+  }
+}
+
 .navigation-bar-responsive {
   span, p {
     color: #0d1116;
@@ -110,6 +129,16 @@ p, a, h1, h2, h3, h4, h5, label, button {
 
   .navigation-bar svg {
     color: #0d1116;
+  }
+
+  .lang-switch-btn {
+    border-color: rgba(0, 0, 0, 0.4);
+    color: #0d1116 !important;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.08);
+      border-color: #0d1116;
+    }
   }
 
   .about-section {

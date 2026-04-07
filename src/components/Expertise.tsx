@@ -5,6 +5,8 @@ import { faReact, faFigma, faPython } from '@fortawesome/free-brands-svg-icons';
 import { faMobileScreen } from '@fortawesome/free-solid-svg-icons';
 import Chip from '@mui/material/Chip';
 import '../assets/styles/Expertise.scss';
+import { useLang } from '../i18n/LanguageContext';
+import { t } from '../i18n/translations';
 
 const labelsFirst = [
     "Figma",
@@ -49,17 +51,19 @@ const labelsFourth = [
 ];
 
 function Expertise() {
+    const { lang } = useLang();
+
     return (
     <div className="container" id="expertise">
         <div className="skills-container">
-            <h1>Expertise</h1>
+            <h1>{t('expertise_title', lang)}</h1>
             <div className="skills-grid">
                 <div className="skill">
                     <FontAwesomeIcon icon={faFigma} size="3x"/>
-                    <h3>UX/UI Design</h3>
-                    <p>Designing user-centered interfaces through research, wireframing, prototyping, and usability testing. Turning complex problems into simple, elegant experiences using Figma and modern design systems.</p>
+                    <h3>{t('expertise_ux_title', lang)}</h3>
+                    <p>{t('expertise_ux_desc', lang)}</p>
                     <div className="flex-chips">
-                        <span className="chip-title">Tech stack:</span>
+                        <span className="chip-title">{t('tech_stack', lang)}</span>
                         {labelsFirst.map((label, index) => (
                             <Chip key={index} className='chip' label={label} />
                         ))}
@@ -68,10 +72,10 @@ function Expertise() {
 
                 <div className="skill">
                     <FontAwesomeIcon icon={faReact} size="3x"/>
-                    <h3>Full-Stack Web Development</h3>
-                    <p>Building scalable web applications with React, Next.js, Node.js, and MongoDB. Expert in SSR, REST APIs, and pixel-perfect implementation of UI designs.</p>
+                    <h3>{t('expertise_web_title', lang)}</h3>
+                    <p>{t('expertise_web_desc', lang)}</p>
                     <div className="flex-chips">
-                        <span className="chip-title">Tech stack:</span>
+                        <span className="chip-title">{t('tech_stack', lang)}</span>
                         {labelsSecond.map((label, index) => (
                             <Chip key={index} className='chip' label={label} />
                         ))}
@@ -80,10 +84,10 @@ function Expertise() {
 
                 <div className="skill">
                     <FontAwesomeIcon icon={faMobileScreen} size="3x"/>
-                    <h3>Mobile App Design & Development</h3>
-                    <p>Crafting cross-platform mobile experiences with React Native — from UX flows and interactive prototypes to full production builds on iOS and Android.</p>
+                    <h3>{t('expertise_mobile_title', lang)}</h3>
+                    <p>{t('expertise_mobile_desc', lang)}</p>
                     <div className="flex-chips">
-                        <span className="chip-title">Tech stack:</span>
+                        <span className="chip-title">{t('tech_stack', lang)}</span>
                         {labelsThird.map((label, index) => (
                             <Chip key={index} className='chip' label={label} />
                         ))}
@@ -92,10 +96,10 @@ function Expertise() {
 
                 <div className="skill">
                     <FontAwesomeIcon icon={faPython} size="3x"/>
-                    <h3>SaaS Product Development</h3>
-                    <p>End-to-end SaaS platforms combining thoughtful UX design with robust engineering — authentication, payments, analytics, and cloud deployment on Vercel and Supabase.</p>
+                    <h3>{t('expertise_saas_title', lang)}</h3>
+                    <p>{t('expertise_saas_desc', lang)}</p>
                     <div className="flex-chips">
-                        <span className="chip-title">Tech stack:</span>
+                        <span className="chip-title">{t('tech_stack', lang)}</span>
                         {labelsFourth.map((label, index) => (
                             <Chip key={index} className='chip' label={label} />
                         ))}

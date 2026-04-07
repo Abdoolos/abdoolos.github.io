@@ -1,0 +1,85 @@
+// ─── Wrapper ───
+.device-mockup-wrapper {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.015);
+  }
+}
+
+// ─── Desktop mockup image ───
+.mockup-desktop {
+  flex-shrink: 0;
+
+  a {
+    display: block;
+    line-height: 0;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+  }
+}
+
+// ─── Mobile mockup image ───
+.mockup-mobile {
+  flex-shrink: 0;
+
+  a {
+    display: block;
+    line-height: 0;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+// ─── Layout: has both desktop + mobile ───
+.device-mockup-wrapper.has-mobile {
+  gap: 0;
+
+  .mockup-desktop {
+    width: 72%;
+    z-index: 1;
+  }
+
+  .mockup-mobile {
+    width: 28%;
+    z-index: 2;
+    margin-left: -8%;
+    margin-bottom: -5px;
+  }
+}
+
+// ─── Layout: desktop only ───
+.device-mockup-wrapper.desktop-only {
+  .mockup-desktop {
+    width: 100%;
+  }
+}
+
+// ─── Responsive ───
+@media screen and (max-width: 700px) {
+  .device-mockup-wrapper.has-mobile {
+    .mockup-desktop {
+      width: 70%;
+    }
+
+    .mockup-mobile {
+      width: 30%;
+      margin-left: -6%;
+    }
+  }
+}

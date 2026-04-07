@@ -15,13 +15,22 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
+import { useLang } from '../i18n/LanguageContext';
+import { t } from '../i18n/translations';
 
 const drawerWidth = 240;
-const navItems = [['Expertise', 'expertise'], ['History', 'history'], ['Projects', 'projects'], ['Contact', 'contact']];
 
 function Navigation({parentToChild, modeChange}: any) {
 
   const {mode} = parentToChild;
+  const { lang, toggleLang } = useLang();
+
+  const navItems: [string, string][] = [
+    [t('nav_expertise', lang), 'expertise'],
+    [t('nav_history', lang), 'history'],
+    [t('nav_projects', lang), 'projects'],
+    [t('nav_contact', lang), 'contact'],
+  ];
 
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -59,7 +68,7 @@ function Navigation({parentToChild, modeChange}: any) {
 
   const drawer = (
     <Box className="navigation-bar-responsive" onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <p className="mobile-menu-top"><ListIcon/>Menu</p>
+      <p className="mobile-menu-top"><ListIcon/>{t('nav_menu', lang)}</p>
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -87,11 +96,19 @@ function Navigation({parentToChild, modeChange}: any) {
           >
             <MenuIcon />
           </IconButton>
-          {mode === 'dark' ? (
-            <LightModeIcon onClick={() => modeChange()}/>
-          ) : (
-            <DarkModeIcon onClick={() => modeChange()}/>
-          )}
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            {mode === 'dark' ? (
+              <LightModeIcon onClick={() => modeChange()} style={{ cursor: 'pointer' }}/>
+            ) : (
+              <DarkModeIcon onClick={() => modeChange()} style={{ cursor: 'pointer' }}/>
+            )}
+            <button
+              onClick={toggleLang}
+              className="lang-switch-btn"
+            >
+              {lang === 'no' ? 'EN' : 'NO'}
+            </button>
+          </Box>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item[0]} onClick={() => scrollToSection(item[1])} sx={{ color: '#fff' }}>

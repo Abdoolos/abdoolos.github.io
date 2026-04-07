@@ -18,51 +18,171 @@
   }
 }
 
-.contact_wrapper svg {
-  font-size: 1em;
-  vertical-align: middle;
-  margin-right: 5px;
-}
-
+// ─── Contact Form ───
 .contact-form {
   padding-top: 20px;
-
-  button {
-    float: right;
-    background-color: white;
-    color: #050f0b;
-  }
-
-  button:hover {
-    background-color: #5000ca;
-    color: white;
-  }
-
-  fieldset {
-    background-color: white;
-  }
-}
-
-label {
-  font-size: 1.2rem;
-  font-family: 'DomaineDispNar-Medium', sans-serif;
-}
-
-.form-flex {
-  display: flex;
-  gap: 15px;
-  padding-bottom: 15px;
-}
-
-.form-flex .MuiFormControl-root {
   width: 100%;
 }
 
-form {
-  width: 100% !important;
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
 }
 
-.body-form {
-  width: 100% !important;
-  margin-bottom: 15px !important;
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+
+  label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    opacity: 0.85;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1rem;
+    font-family: "Lato", sans-serif;
+    border: 2px solid rgba(128, 128, 128, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: inherit;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: rgba(128, 128, 128, 0.6);
+    }
+
+    &:focus {
+      border-color: #5000ca;
+      box-shadow: 0 0 0 3px rgba(80, 0, 202, 0.15);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .input-error {
+    border-color: #e74c3c;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15);
+    }
+  }
+
+  .error-text {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    margin-top: 4px;
+  }
+}
+
+.send-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Lato", sans-serif;
+  background: #5000ca;
+  color: white !important;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+  float: right;
+
+  &:hover {
+    background: #3d00a1;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.success-msg {
+  color: #27ae60 !important;
+  font-size: 0.95rem;
+  margin-top: 12px;
+  clear: both;
+}
+
+// ─── Direct Email Section ───
+.direct-email {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(128, 128, 128, 0.2);
+
+  h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  p {
+    opacity: 0.75;
+    margin-bottom: 20px;
+  }
+}
+
+.mailto-btn {
+  display: inline-block;
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: "Lato", sans-serif;
+  background: linear-gradient(135deg, #5000ca, #7c3aed);
+  color: white !important;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 15px rgba(80, 0, 202, 0.3);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(80, 0, 202, 0.4);
+    color: white !important;
+  }
+}
+
+// ─── Light mode ───
+.light-mode {
+  .form-group {
+    input,
+    textarea {
+      background: #fff;
+      border-color: #d1d5db;
+      color: #1a1a1a;
+
+      &:focus {
+        border-color: #5000ca;
+      }
+    }
+  }
+
+  .send-btn {
+    background: #5000ca;
+    color: white !important;
+  }
+}
+
+// ─── Responsive ───
+@media screen and (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
 }

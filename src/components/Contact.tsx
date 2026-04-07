@@ -1,52 +1,35 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import '../assets/styles/Contact.scss';
-// import emailjs from '@emailjs/browser';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
-import TextField from '@mui/material/TextField';
+import { useLang } from '../i18n/LanguageContext';
+import { t } from '../i18n/translations';
 
 function Contact() {
+  const { lang } = useLang();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [errors, setErrors] = useState<{name?: string; email?: string; message?: string}>({});
+  const [sent, setSent] = useState(false);
 
-  const [name, setName] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [message, setMessage] = useState<string>('');
-
-  const [nameError, setNameError] = useState<boolean>(false);
-  const [emailError, setEmailError] = useState<boolean>(false);
-  const [messageError, setMessageError] = useState<boolean>(false);
-
-  const form = useRef(null);
-
-  const sendEmail = (e: any) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const newErrors: typeof errors = {};
+    if (!name.trim()) newErrors.name = t('contact_error_name', lang);
+    if (!email.trim()) newErrors.email = t('contact_error_email', lang);
+    if (!message.trim()) newErrors.message = t('contact_error_message', lang);
+    setErrors(newErrors);
 
-    setNameError(name === '');
-    setEmailError(email === '');
-    setMessageError(message === '');
-
-    /* Uncomment below if you want to enable the emailJS */
-
-    // if (name !== '' && email !== '' && message !== '') {
-    //   var templateParams = {
-    //     name: name,
-    //     email: email,
-    //     message: message
-    //   };
-
-    //   console.log(templateParams);
-    //   emailjs.send('service_id', 'template_id', templateParams, 'api_key').then(
-    //     (response) => {
-    //       console.log('SUCCESS!', response.status, response.text);
-    //     },
-    //     (error) => {
-    //       console.log('FAILED...', error);
-    //     },
-    //   );
-    //   setName('');
-    //   setEmail('');
-    //   setMessage('');
-    // }
+    if (Object.keys(newErrors).length === 0) {
+      const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+      window.open(`mailto:ah2x2x3x@gmail.com?subject=${subject}&body=${body}`, '_self');
+      setSent(true);
+      setName('');
+      setEmail('');
+      setMessage('');
+      setErrors({});
+      setTimeout(() => setSent(false), 4000);
+    }
   };
 
   return (
@@ -54,63 +37,65 @@ function Contact() {
       <div className="items-container">
         <div className="contact_wrapper">
           <div className="corporate-training">
-            <h2>Corporate Training</h2>
-            <p>Empower your team with cutting-edge skills in UX Design, Product Thinking, and Modern Full-Stack Development. Customized training programs tailored to your company's product and design needs.</p>
+            <h2>{t('corporate_title', lang)}</h2>
+            <p>{t('corporate_desc', lang)}</p>
           </div>
-          <h1>Contact Me</h1>
-          <p>Got a project waiting to be realized? Let's collaborate and make it happen!</p>
-          <Box
-            ref={form}
-            component="form"
-            noValidate
-            autoComplete="off"
-            className='contact-form'
-          >
-            <div className='form-flex'>
-              <TextField
-                required
-                id="outlined-required"
-                label="Your Name"
-                placeholder="What's your name?"
-                value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-                error={nameError}
-                helperText={nameError ? "Please enter your name" : ""}
-              />
-              <TextField
-                required
-                id="outlined-required"
-                label="Email / Phone"
-                placeholder="How can I reach you?"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-                error={emailError}
-                helperText={emailError ? "Please enter your email or phone number" : ""}
-              />
+
+          <h1>{t('contact_title', lang)}</h1>
+          <p>{t('contact_desc', lang)}</p>
+
+          <form className="contact-form" onSubmit={handleSubmit} noValidate>
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="contact-name">{t('contact_name_label', lang)}</label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  placeholder={t('contact_name_placeholder', lang)}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className={errors.name ? 'input-error' : ''}
+                />
+                {errors.name && <span className="error-text">{errors.name}</span>}
+              </div>
+              <div className="form-group">
+                <label htmlFor="contact-email">{t('contact_email_label', lang)}</label>
+                <input
+                  id="contact-email"
+                  type="text"
+                  placeholder={t('contact_email_placeholder', lang)}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className={errors.email ? 'input-error' : ''}
+                />
+                {errors.email && <span className="error-text">{errors.email}</span>}
+              </div>
             </div>
-            <TextField
-              required
-              id="outlined-multiline-static"
-              label="Message"
-              placeholder="Send me any inquiries or questions"
-              multiline
-              rows={10}
-              className="body-form"
-              value={message}
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
-              error={messageError}
-              helperText={messageError ? "Please enter the message" : ""}
-            />
-            <Button variant="contained" endIcon={<SendIcon />} onClick={sendEmail}>
-              Send
-            </Button>
-          </Box>
+            <div className="form-group">
+              <label htmlFor="contact-message">{t('contact_message_label', lang)}</label>
+              <textarea
+                id="contact-message"
+                placeholder={t('contact_message_placeholder', lang)}
+                rows={8}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                className={errors.message ? 'input-error' : ''}
+              />
+              {errors.message && <span className="error-text">{errors.message}</span>}
+            </div>
+            <button type="submit" className="send-btn">
+              {t('contact_send', lang)}
+            </button>
+            {sent && <p className="success-msg">{t('contact_success', lang)}</p>}
+          </form>
+
+          <div className="direct-email">
+            <h3>{t('contact_direct_title', lang)}</h3>
+            <p>{t('contact_direct_desc', lang)}</p>
+            <a href="mailto:ah2x2x3x@gmail.com" className="mailto-btn">
+              {t('contact_direct_btn', lang)}
+            </a>
+          </div>
         </div>
       </div>
     </div>

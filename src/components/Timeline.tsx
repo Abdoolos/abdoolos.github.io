@@ -5,74 +5,68 @@ import { faBriefcase, faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import '../assets/styles/Timeline.scss'
+import { useLang } from '../i18n/LanguageContext';
+import { t } from '../i18n/translations';
 
 function Timeline() {
+  const { lang } = useLang();
+
   return (
     <div id="history">
       <div className="items-container">
-        <h1>Career History</h1>
+        <h1>{t('timeline_title', lang)}</h1>
         <VerticalTimeline>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
             contentStyle={{ background: 'white', color: 'rgb(39, 40, 34)' }}
             contentArrowStyle={{ borderRight: '7px solid  white' }}
-            date="2019 — Present"
+            date={t('timeline_job1_date', lang)}
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
-            <h3 className="vertical-timeline-element-title">UX Designer & Full-Stack Developer</h3>
-            <h4 className="vertical-timeline-element-subtitle">Freelance</h4>
-            <p>
-              Designing and building AI-powered web and mobile products, SaaS platforms, and user-centered digital experiences from concept to deployment.
-            </p>
+            <h3 className="vertical-timeline-element-title">{t('timeline_job1_title', lang)}</h3>
+            <h4 className="vertical-timeline-element-subtitle">{t('timeline_job1_sub', lang)}</h4>
+            <p>{t('timeline_job1_desc', lang)}</p>
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            date="Data Analyst"
+            date={t('timeline_job2_date', lang)}
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
-            <h3 className="vertical-timeline-element-title">Data Analyst</h3>
-            <h4 className="vertical-timeline-element-subtitle">Airbnb — Sweden</h4>
-            <p>
-              Translated data insights into UX improvements and strategic product decisions for better user experiences at scale.
-            </p>
+            <h3 className="vertical-timeline-element-title">{t('timeline_job2_title', lang)}</h3>
+            <h4 className="vertical-timeline-element-subtitle">{t('timeline_job2_sub', lang)}</h4>
+            <p>{t('timeline_job2_desc', lang)}</p>
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            date="Content Creator"
+            date={t('timeline_job3_date', lang)}
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
-            <h3 className="vertical-timeline-element-title">Content Creator</h3>
-            <h4 className="vertical-timeline-element-subtitle">YouTube & TikTok</h4>
-            <p>
-              Creating UX design tutorials, product development content, and open-source design/dev resources.
-            </p>
+            <h3 className="vertical-timeline-element-title">{t('timeline_job3_title', lang)}</h3>
+            <h4 className="vertical-timeline-element-subtitle">{t('timeline_job3_sub', lang)}</h4>
+            <p>{t('timeline_job3_desc', lang)}</p>
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--education"
-            date="Certification"
+            date={t('timeline_cert1_date', lang)}
             iconStyle={{ background: '#f9c74f', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faGraduationCap} />}
           >
-            <h3 className="vertical-timeline-element-title">Google UX Design Certificate</h3>
-            <h4 className="vertical-timeline-element-subtitle">Google</h4>
-            <p>
-              User experience design principles, prototyping, and user research methodologies.
-            </p>
+            <h3 className="vertical-timeline-element-title">{t('timeline_cert1_title', lang)}</h3>
+            <h4 className="vertical-timeline-element-subtitle">{t('timeline_cert1_sub', lang)}</h4>
+            <p>{t('timeline_cert1_desc', lang)}</p>
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--education"
-            date="Certification"
+            date={t('timeline_cert2_date', lang)}
             iconStyle={{ background: '#f9c74f', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faGraduationCap} />}
           >
-            <h3 className="vertical-timeline-element-title">Full-Stack & Modern Web Development</h3>
-            <h4 className="vertical-timeline-element-subtitle">Udemy & Coursera</h4>
-            <p>
-              MERN stack, Next.js, React Native, and modern web development practices.
-            </p>
+            <h3 className="vertical-timeline-element-title">{t('timeline_cert2_title', lang)}</h3>
+            <h4 className="vertical-timeline-element-subtitle">{t('timeline_cert2_sub', lang)}</h4>
+            <p>{t('timeline_cert2_desc', lang)}</p>
           </VerticalTimelineElement>
         </VerticalTimeline>
       </div>
