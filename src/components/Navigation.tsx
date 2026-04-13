@@ -121,7 +121,7 @@ function Navigation({parentToChild, modeChange}: any) {
           </Box>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item[0]} onClick={() => handleNavClick(item[1], item[2])} sx={{ color: '#fff' }}>
+              <Button key={item[0]} onClick={() => handleNavClick(item[1], item[2])} sx={{ color: mode === 'dark' ? '#fff' : '#0d1116', fontWeight: 600 }}>
                 {item[0]}
               </Button>
             ))}
