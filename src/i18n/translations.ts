@@ -170,6 +170,29 @@ const translations = {
   // ─── Footer ───
   footer_text_pre: { no: 'En portefølje designet & bygget av', en: 'A portfolio designed & built by' },
   footer_text_post: { no: 'med 💜', en: 'with 💜' },
+
+  // ─── Project Gallery & Detail ───
+  back_home: { no: '← Tilbake', en: '← Back' },
+  detail_preview: { no: 'Live Forhåndsvisning', en: 'Live Preview' },
+  detail_design: { no: 'Design & Grensesnitt', en: 'Design & Interface' },
+  detail_category: { no: 'Kategori', en: 'Category' },
+  detail_type: { no: 'Type', en: 'Type' },
+  detail_link: { no: 'Besøk nettstedet', en: 'Visit Website' },
+  detail_cta_title: { no: 'Interessert i lignende arbeid?', en: 'Interested in similar work?' },
+  detail_cta_desc: {
+    no: 'Ta kontakt for å diskutere ditt neste prosjekt eller utforsk resten av porteføljen.',
+    en: 'Get in touch to discuss your next project or explore the rest of the portfolio.',
+  },
+  gallery_title: { no: 'Prosjektgalleri', en: 'Project Gallery' },
+  gallery_subtitle: {
+    no: 'Utforsk alle mine prosjekter — fra live-nettsteder til UX-design og mobilapper',
+    en: 'Explore all my projects — from live websites to UX design and mobile apps',
+  },
+  gallery_all: { no: 'Alle', en: 'All' },
+  gallery_live: { no: 'Live', en: 'Live' },
+  gallery_ux: { no: 'UX Design', en: 'UX Design' },
+  gallery_saas: { no: 'SaaS', en: 'SaaS' },
+  gallery_mobile: { no: 'Mobil', en: 'Mobile' },
 } as const;
 
 export type TranslationKey = keyof typeof translations;

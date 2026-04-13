@@ -15,6 +15,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
+import { useNavigate } from 'react-router-dom';
 import { useLang } from '../i18n/LanguageContext';
 import { t } from '../i18n/translations';
 
@@ -24,13 +25,22 @@ function Navigation({parentToChild, modeChange}: any) {
 
   const {mode} = parentToChild;
   const { lang, toggleLang } = useLang();
+  const navigate = useNavigate();
 
-  const navItems: [string, string][] = [
-    [t('nav_expertise', lang), 'expertise'],
-    [t('nav_history', lang), 'history'],
-    [t('nav_projects', lang), 'projects'],
-    [t('nav_contact', lang), 'contact'],
+  const navItems: [string, string, boolean][] = [
+    [t('nav_expertise', lang), 'expertise', false],
+    [t('nav_history', lang), 'history', false],
+    [t('nav_projects', lang), '/projects', true],
+    [t('nav_contact', lang), 'contact', false],
   ];
+
+  const handleNavClick = (target: string, isPage: boolean) => {
+    if (isPage) {
+      navigate(target);
+    } else {
+      scrollToSection(target);
+    }
+  };
 
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -73,7 +83,7 @@ function Navigation({parentToChild, modeChange}: any) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item[0]} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }} onClick={() => scrollToSection(item[1])}>
+            <ListItemButton sx={{ textAlign: 'center' }} onClick={() => handleNavClick(item[1], item[2])}>
               <ListItemText primary={item[0]} />
             </ListItemButton>
           </ListItem>
@@ -111,7 +121,7 @@ function Navigation({parentToChild, modeChange}: any) {
           </Box>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item[0]} onClick={() => scrollToSection(item[1])} sx={{ color: '#fff' }}>
+              <Button key={item[0]} onClick={() => handleNavClick(item[1], item[2])} sx={{ color: '#fff' }}>
                 {item[0]}
               </Button>
             ))}
