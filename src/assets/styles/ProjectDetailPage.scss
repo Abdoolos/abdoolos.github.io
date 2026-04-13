@@ -22,19 +22,17 @@
     align-items: center;
     gap: 6px;
     background: transparent;
-    border: 1.5px solid rgba(255, 255, 255, 0.25);
-    color: white;
+    border: 1.5px solid;
     padding: 7px 16px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 0.9rem;
     font-family: "Lato", sans-serif;
     font-weight: 600;
-    transition: all 0.2s ease;
+    transition: background 0.2s ease;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.6);
+      background: rgba(128, 128, 128, 0.15);
     }
   }
 
@@ -44,9 +42,8 @@
     gap: 12px;
 
     svg {
-      color: white;
       cursor: pointer;
-      opacity: 0.85;
+      opacity: 0.9;
 
       &:hover { opacity: 1; }
     }
@@ -367,22 +364,7 @@
 
 /* ── Light mode overrides ─────────────── */
 .light-mode {
-  .detail-header {
-    background: rgba(248, 249, 250, 0.92);
-    border-bottom-color: rgba(0, 0, 0, 0.08);
-
-    .back-btn {
-      border-color: rgba(0, 0, 0, 0.2);
-      color: #0d1116;
-
-      &:hover {
-        background: rgba(0, 0, 0, 0.05);
-        border-color: rgba(0, 0, 0, 0.5);
-      }
-    }
-
-    .header-actions svg { color: #0d1116; }
-  }
+  /* detail-header bg/border handled via inline styles in component */
 
   /* Hero always has dark gradient bg — keep text white */
   .detail-hero .hero-cta {

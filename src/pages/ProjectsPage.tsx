@@ -18,19 +18,35 @@ function ProjectsPage({ mode, modeChange }: ProjectsPageProps) {
   const navigate = useNavigate();
   const { lang, toggleLang } = useLang();
 
+  const isDark = mode === 'dark';
+  const headerBg   = isDark ? '#0d1116' : '#ffffff';
+  const textColor  = isDark ? '#ffffff' : '#0d1116';
+  const borderClr  = isDark ? 'rgba(255,255,255,0.25)' : 'rgba(0,0,0,0.2)';
+
   return (
-    <div className={`main-container ${mode === 'dark' ? 'dark-mode' : 'light-mode'}`}>
-      <header className="projects-page-header">
-        <button className="back-btn" onClick={() => navigate('/')}>
+    <div className={`main-container ${isDark ? 'dark-mode' : 'light-mode'}`}>
+      <header
+        className="projects-page-header"
+        style={{ backgroundColor: headerBg, borderBottom: `1px solid ${isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.1)'}` }}
+      >
+        <button
+          className="back-btn"
+          onClick={() => navigate('/')}
+          style={{ color: textColor, borderColor: borderClr }}
+        >
           <ArrowBackIcon fontSize="small" />
           {t('back_home', lang)}
         </button>
-        <span className="page-title">{t('gallery_title', lang)}</span>
+
+        <span className="page-title" style={{ color: textColor }}>
+          {t('gallery_title', lang)}
+        </span>
+
         <div className="header-actions">
-          {mode === 'dark' ? (
-            <LightModeIcon onClick={modeChange} style={{ cursor: 'pointer' }} />
+          {isDark ? (
+            <LightModeIcon onClick={modeChange} style={{ cursor: 'pointer', color: textColor }} />
           ) : (
-            <DarkModeIcon onClick={modeChange} style={{ cursor: 'pointer' }} />
+            <DarkModeIcon onClick={modeChange} style={{ cursor: 'pointer', color: textColor }} />
           )}
           <button onClick={toggleLang} className="lang-switch-btn">
             {lang === 'no' ? 'EN' : 'NO'}
